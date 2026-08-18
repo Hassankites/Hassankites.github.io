@@ -1,4 +1,5 @@
 .deps/
+.tools/
 site/
 hooks/__pycache__/
 *.py[cod]
