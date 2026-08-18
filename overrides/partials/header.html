@@ -1,0 +1,55 @@
+{#- 自定义头部：站名 + 内联导航链接（单行磨砂导航） -#}
+{% set class = "md-header" %}
+<header class="{{ class }} md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="{{ lang.t('header') }}">
+    <label class="md-header__button md-icon" for="__drawer">
+      {% set icon = config.theme.icon.menu or "material/menu" %}
+      {% include ".icons/" ~ icon ~ ".svg" %}
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <a class="md-header__brand" href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}?cover=1" aria-label="返回初始海报">
+          <span class="md-ellipsis">Hassankite Site</span>
+        </a>
+      </div>
+    </div>
+    {% if nav %}
+      <nav class="md-header__nav" aria-label="站点导航">
+        <ul class="md-header__nav-list">
+          {% for nav_item in nav %}
+            <li class="md-header__nav-item{% if nav_item.active %} md-header__nav-item--active{% endif %}">
+              <a href="{{ nav_item.url | url }}" class="md-header__nav-link">{{ nav_item.title }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+    {% endif %}
+    <div class="md-header__spacer"></div>
+    {% if config.theme.palette %}
+      {% if not config.theme.palette is mapping %}
+        {% include "partials/palette.html" %}
+      {% endif %}
+    {% endif %}
+    {% if not config.theme.palette is mapping %}
+      {% include "partials/javascripts/palette.html" %}
+    {% endif %}
+    {% if config.extra.alternate %}
+      {% include "partials/alternate.html" %}
+    {% endif %}
+    {% if "material/search" in config.plugins %}
+      {% set search = config.plugins["material/search"] | attr("config") %}
+      {% if search.enabled %}
+        <label class="md-header__button md-icon" for="__search">
+          {% set icon = config.theme.icon.search or "material/magnify" %}
+          {% include ".icons/" ~ icon ~ ".svg" %}
+        </label>
+        {% include "partials/search.html" %}
+      {% endif %}
+    {% endif %}
+    {% if config.repo_url %}
+      <div class="md-header__source">
+        {% include "partials/source.html" %}
+      </div>
+    {% endif %}
+  </nav>
+</header>

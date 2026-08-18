@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  <style>
+    html { background: #f7f7fa; }
+    html[data-prepaint-scheme="slate"],
+    html[data-prepaint-scheme="slate"] body { background: #1e2129 !important; color-scheme: dark; }
+    html[data-prepaint-scheme="default"],
+    html[data-prepaint-scheme="default"] body { background: #f7f7fa !important; color-scheme: light; }
+  </style>
+  <script>
+    /* 在首帧绘制前确定页面底色，避免深色页面导航时闪出白屏。 */
+    (function () {
+      try {
+        var saved = localStorage.getItem("mkdocs-theme");
+        var scheme = saved === "slate" ? "slate" : "default";
+        document.documentElement.setAttribute("data-prepaint-scheme", scheme);
+        document.documentElement.style.backgroundColor = scheme === "slate" ? "#1e2129" : "#f7f7fa";
+      } catch (e) {
+        document.documentElement.setAttribute("data-prepaint-scheme", "default");
+      }
+    })();
+  </script>
+{% endblock %}
