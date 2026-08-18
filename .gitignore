@@ -1,0 +1,9 @@
+.deps/
+.tools/
+site/
+hooks/__pycache__/
+*.py[cod]
+serve_log.txt
+serve_err.txt
+.DS_Store
+Thumbs.db
