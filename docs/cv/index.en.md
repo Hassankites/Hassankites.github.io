@@ -81,12 +81,22 @@
       <span class="cv-item-date">2026.08 — Present</span>
     </div>
     <ul class="cv-tags cv-project-tags">
-      <li class="cv-tag">AI-Assisted Engineering Workflow</li>
-      <li class="cv-tag">Bilingual Content Architecture</li>
-      <li class="cv-tag">Metadata-Driven Generation</li>
-      <li class="cv-tag">Responsive Interaction System</li>
+      <li class="cv-tag">MkDocs / Material / Markdown</li>
+      <li class="cv-tag">Vanilla JavaScript / Custom CSS</li>
+      <li class="cv-tag">Bilingual Content Architecture / Metadata-Driven Generation</li>
+      <li class="cv-tag">GitHub Actions / GitHub Pages</li>
+      <li class="cv-tag">Static-Site Generation Pipeline / Responsive Interaction System</li>
     </ul>
-    <p>Independently designed, developed, and continuously iterated on a personal blog website from the ground up with Codex.</p>
+    <p>Independently built a publicly accessible personal website integrating personal presentation, content publishing, résumé presentation, and a friends-link architecture. The project uses a content-driven, purely static front-end architecture, manages articles through Markdown, and integrates GitHub Actions for automated builds and continuous deployment.</p>
+    <ul class="cv-project-points">
+      <li>Built the site architecture and interactions with MkDocs, Material, and custom HTML / CSS / JavaScript.</li>
+      <li>Implemented the home, About, article list and detail, résumé, log, friends, and announcement modules.</li>
+      <li>Implemented Chinese–English and light–dark theme switching with consistent responsive layouts across all four modes.</li>
+      <li>Designed an article metadata system based on tags, dates, cover images, and summaries, supporting categorized browsing and full-text search.</li>
+      <li>Created a full-screen photography poster, click-to-expand transition, dynamic typing, theme transitions, and a custom cursor interaction.</li>
+      <li>Automated builds, HTTPS access, and public deployment through GitHub Actions and GitHub Pages.</li>
+    </ul>
+    <a class="cv-project-link" href="https://hassankites.github.io/" target="_blank" rel="noopener">Visit the live site →</a>
   </article>
 
   <article class="cv-project">
@@ -95,11 +105,10 @@
       <span class="cv-item-date">2026.07 — Present</span>
     </div>
     <ul class="cv-tags cv-project-tags">
-      <li class="cv-tag">Event-Driven State Machine</li>
+      <li class="cv-tag">Python + PySide6</li>
       <li class="cv-tag">GIF Rendering Pipeline</li>
       <li class="cv-tag">Dynamic Window Adaptation</li>
       <li class="cv-tag">Layered Decoupled Architecture</li>
-      <li class="cv-tag">Standalone Binary Delivery</li>
     </ul>
     <ul class="cv-project-points">
       <li>Independently developed a lightweight desktop pet application with Python and PySide6.</li>
