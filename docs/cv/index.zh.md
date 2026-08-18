@@ -81,12 +81,22 @@
       <span class="cv-item-date">2026.08 — 至今</span>
     </div>
     <ul class="cv-tags cv-project-tags">
-      <li class="cv-tag">AI 辅助工程工作流</li>
-      <li class="cv-tag">双语内容架构</li>
-      <li class="cv-tag">元数据驱动生成</li>
-      <li class="cv-tag">响应式交互系统</li>
+      <li class="cv-tag">MkDocs / Material / Markdown</li>
+      <li class="cv-tag">Vanilla JavaScript / Custom CSS</li>
+      <li class="cv-tag">双语内容架构 / 元数据驱动生成</li>
+      <li class="cv-tag">GitHub Actions / GitHub Pages</li>
+      <li class="cv-tag">静态站点生成管线 / 响应式交互系统</li>
     </ul>
-    <p>使用 Codex 从 0 到 1 独立完成个人博客网站的设计、开发与持续迭代。</p>
+    <p>独立完成一个可公开访问的个人网站项目，包含“个人展示 + 内容发布 + 履历呈现 + 友链架构”的设计。项目采用内容驱动的纯前端静态架构，通过 Markdown 管理文章，并接入 GitHub Actions 完成自动构建与持续部署。</p>
+    <ul class="cv-project-points">
+      <li>基于 MkDocs、Material、自定义 HTML / CSS / JavaScript 完成网站架构与交互开发。</li>
+      <li>实现首页、About、文章列表与详情、简历、日志、友链及公告等内容模块。</li>
+      <li>实现中英双语与日夜主题切换，并统一四种模式下的响应式排版体验。</li>
+      <li>构建基于标签、时间、封面与摘要的文章元数据体系，支持分类展示与全文搜索。</li>
+      <li>设计全屏摄影海报、点击展开转场、动态打字、主题过渡与自定义光标交互。</li>
+      <li>通过 GitHub Actions 与 GitHub Pages 实现自动化构建、HTTPS 接入和公开部署。</li>
+    </ul>
+    <a class="cv-project-link" href="https://hassankites.github.io/" target="_blank" rel="noopener">访问公开网站 →</a>
   </article>
 
   <article class="cv-project">
@@ -95,11 +105,10 @@
       <span class="cv-item-date">2026.07 — 至今</span>
     </div>
     <ul class="cv-tags cv-project-tags">
-      <li class="cv-tag">事件驱动状态机</li>
+      <li class="cv-tag">Python + PySide6</li>
       <li class="cv-tag">GIF 渲染管线</li>
       <li class="cv-tag">窗口动态自适应</li>
       <li class="cv-tag">分层解耦架构</li>
-      <li class="cv-tag">独立可执行交付</li>
     </ul>
     <ul class="cv-project-points">
       <li>独立开发基于 Python + PySide6 的轻量级桌面宠物程序。</li>
