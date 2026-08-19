@@ -16,19 +16,40 @@
     root.setAttribute("data-prepaint-scheme", scheme);
     root.style.backgroundColor = isSlate ? "#1e2129" : "#f7f7fa";
     document.body.setAttribute("data-md-color-scheme", scheme);
+    document.body.setAttribute("data-md-color-primary", "indigo");
+    document.body.setAttribute("data-md-color-accent", "pink");
     var targetId = isSlate ? "__palette_1" : "__palette_0";
     var radio = document.getElementById(targetId);
     if (radio) {
       radio.checked = true;
-      radio.dispatchEvent(new Event("change", { bubbles: true }));
     }
     try {
       localStorage.setItem("mkdocs-theme", scheme);
+      // 同步 Material 自身的配色存储，避免移动端刷新后两个状态互相覆盖。
+      if (typeof window.__md_set === "function") {
+        window.__md_set("__palette", {
+          color: {
+            scheme: scheme,
+            primary: "indigo",
+            accent: "pink"
+          }
+        });
+      }
     } catch (e) {}
+    // 某些移动浏览器会在当前任务末尾重新应用 Material 的旧状态，
+    // 下一帧再次校准正文属性，保证开关与页面配色始终一致。
+    window.requestAnimationFrame(function () {
+      document.body.setAttribute("data-md-color-scheme", scheme);
+      document.body.setAttribute("data-md-color-primary", "indigo");
+      document.body.setAttribute("data-md-color-accent", "pink");
+    });
     window.setTimeout(function () { root.classList.remove("theme-switching"); }, 450);
   }
 
   function buildThemeSlider() {
+    var saved = null;
+    try { saved = localStorage.getItem("mkdocs-theme"); } catch (e) {}
+    if (saved === "slate" || saved === "default") applyScheme(saved);
     var current = getCurrentScheme();
     var isDark = current === "slate";
 
@@ -63,6 +84,8 @@
       inner.appendChild(wrap);
     }
   }
+
+  window.applySiteScheme = applyScheme;
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", buildThemeSlider);

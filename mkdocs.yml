@@ -97,6 +97,7 @@ extra_javascript:
   - javascripts/navigation-transition.js
   - javascripts/language-switch.js
   - javascripts/theme-switch.js
+  - javascripts/print-resume.js
   - javascripts/site-stats.js
   - javascripts/about-link.js
   - javascripts/search-close.js

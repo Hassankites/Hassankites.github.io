@@ -5,9 +5,9 @@
   function setSearchState(active) {
     var box = document.getElementById("__search");
     var search = document.querySelector(".md-header .md-search");
-    if (box && box.checked !== active) {
-      box.checked = active;
-    }
+    // 不启用 Material 的全屏搜索状态；结果面板由下方 data 属性控制。
+    // 这样手机端也始终保留右上角的紧凑胶囊搜索框。
+    if (box && box.checked) box.checked = false;
     if (search) {
       search.setAttribute("data-search-active", active ? "true" : "false");
     }

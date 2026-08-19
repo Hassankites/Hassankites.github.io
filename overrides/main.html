@@ -8,6 +8,11 @@
     html[data-prepaint-scheme="default"],
     html[data-prepaint-scheme="default"] body { background: #f7f7fa !important; color-scheme: light; }
     @media print {
+      :root {
+        --md-default-bg-color: #fff !important;
+        --md-default-fg-color: #15151a !important;
+        --md-typeset-color: #15151a !important;
+      }
       html,
       html body,
       html[data-prepaint-scheme="slate"],
@@ -17,6 +22,20 @@
         background: #fff !important;
         color: #111 !important;
         color-scheme: light !important;
+      }
+      html body .md-container,
+      html body .md-main,
+      html body .md-main__inner,
+      html body .md-content,
+      html body .md-content__inner,
+      html body .md-content article,
+      html body .cv-page,
+      html body .cv-card,
+      html body .cv-hero {
+        background: #fff !important;
+        background-image: none !important;
+        color: #15151a !important;
+        box-shadow: none !important;
       }
     }
   </style>

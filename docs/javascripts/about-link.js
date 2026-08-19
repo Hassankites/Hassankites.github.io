@@ -11,24 +11,48 @@
     return false;
   }
 
-  function insertAboutButton(navList) {
+  function insertAboutButton(navList, mobile) {
     // 在第 1 个 nav item（主页）之后插入「关于」
     var homeItem = navList.children[0];
     if (!homeItem) return null;
 
     var aboutItem = document.createElement("li");
-    aboutItem.className = "md-header__nav-item";
+    aboutItem.className = mobile ? "md-nav__item" : "md-header__nav-item";
 
     var link = document.createElement("a");
-    link.className = "md-header__nav-link";
+    link.className = mobile ? "md-nav__link" : "md-header__nav-link";
     var isEn = (document.documentElement.getAttribute("lang") || "zh") === "en";
     link.textContent = isEn ? "About" : "关于";
-    var homeHref = homeItem.querySelector(".md-header__nav-link").getAttribute("href") || ".";
+    var homeLink = homeItem.querySelector(mobile ? ".md-nav__link" : ".md-header__nav-link");
+    if (!homeLink) return null;
+    var homeHref = homeLink.getAttribute("href") || ".";
     link.href = homeHref + "#about";
     aboutItem.appendChild(link);
 
     navList.insertBefore(aboutItem, homeItem.nextSibling);
     return link;
+  }
+
+  function closeDrawer() {
+    var drawer = document.getElementById("__drawer");
+    if (drawer) drawer.checked = false;
+  }
+
+  function wireAboutLink(aboutLink, navList, mobile) {
+    if (!aboutLink) return;
+    aboutLink.addEventListener("click", function (e) {
+      e.preventDefault();
+      closeDrawer();
+      if (isOnHome()) {
+        scrollToAbout();
+      } else {
+        var homeItem = navList.children[0].querySelector(mobile ? ".md-nav__link" : ".md-header__nav-link");
+        var homeHref = homeItem ? homeItem.getAttribute("href") : ".";
+        var destination = homeHref + "#about";
+        if (window.navigateWithTransition) window.navigateWithTransition(destination);
+        else window.location.href = destination;
+      }
+    });
   }
 
   function isOnHome() {
@@ -37,26 +61,11 @@
   }
 
   function init() {
-    var navList = document.querySelector(".md-header__nav-list");
-    if (!navList) return;
+    var headerList = document.querySelector(".md-header__nav-list");
+    if (headerList) wireAboutLink(insertAboutButton(headerList, false), headerList, false);
 
-    var aboutLink = insertAboutButton(navList);
-
-    if (aboutLink) {
-      aboutLink.addEventListener("click", function (e) {
-        e.preventDefault();
-        if (isOnHome()) {
-          scrollToAbout();
-        } else {
-          // 非首页：跳转首页并带 #about
-          var homeItem = navList.children[0].querySelector(".md-header__nav-link");
-          var homeHref = homeItem ? homeItem.getAttribute("href") : ".";
-          var destination = homeHref + "#about";
-          if (window.navigateWithTransition) window.navigateWithTransition(destination);
-          else window.location.href = destination;
-        }
-      });
-    }
+    var drawerList = document.querySelector(".md-nav--primary > .md-nav__list");
+    if (drawerList) wireAboutLink(insertAboutButton(drawerList, true), drawerList, true);
 
     // 页面加载时若 URL 带 #about，滚动到对应区块
     if (window.location.hash === "#about") {

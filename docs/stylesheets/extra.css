@@ -439,6 +439,86 @@ html.theme-switching .friend-card {
   }
 }
 
+/* ============================================================
+   移动端稳定性最终覆盖：主题、海报、抽屉、搜索与打印
+   ============================================================ */
+
+/* 海报是摄影内容，不参与日夜主题的明暗处理。 */
+.home-banner,
+[data-md-color-scheme="default"] .home-banner,
+[data-md-color-scheme="slate"] .home-banner {
+  background-color: #101522 !important;
+  background-image:
+    linear-gradient(105deg, rgba(10, 13, 26, 0.38), rgba(18, 21, 39, 0.08)),
+    url("../assets/images/home-poster-web.jpg") !important;
+  background-position: center 54% !important;
+  background-size: cover !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  forced-color-adjust: none;
+  color-scheme: only light;
+}
+
+/* 在唤起系统打印界面前先把简历画布切到真正的浅色状态。
+   这组屏幕规则用于兼容部分平板打印引擎未及时应用 print media 的情况。 */
+html.cv-printing,
+html.cv-printing body,
+html.cv-printing .md-container,
+html.cv-printing .md-main,
+html.cv-printing .md-main__inner,
+html.cv-printing .md-content,
+html.cv-printing .md-content__inner,
+html.cv-printing .md-content article,
+html.cv-printing .cv-page,
+html.cv-printing .cv-card,
+html.cv-printing .cv-hero {
+  color: #15151a !important;
+  background: #fff !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color-scheme: only light !important;
+}
+
+/* 所有表面同速完成换色，避免移动端出现背景先变、正文仍停留在旧颜色。 */
+body,
+.md-header,
+.md-tabs,
+.md-main,
+.md-content,
+.md-footer,
+.md-sidebar,
+.md-banner,
+.home-about,
+.home-profile-card,
+.home-side-card,
+.home-latest,
+.cv-hero,
+.cv-card,
+.friend-card,
+.changelog,
+.md-typeset,
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset p,
+.md-typeset li,
+.md-nav,
+.md-search__form,
+.switch,
+.md-header__nav-link,
+.cl-year-num,
+.cl-item,
+.cl-date,
+.cl-text,
+.cl-tag,
+.cv-tag,
+.stat-value,
+.stat-label {
+  transition-duration: 0.34s !important;
+  transition-delay: 0s !important;
+  transition-timing-function: ease !important;
+}
+
 .home-banner::after {
   content: "";
   position: absolute;
@@ -3285,5 +3365,166 @@ body,
     margin-top: 2pt !important;
     color: #30356f !important;
     font-size: 7.2pt !important;
+  }
+}
+
+/* 最终响应式优先级：放在所有历史样式之后，避免旧断点重新隐藏抽屉或放大搜索框。 */
+@media screen and (max-width: 48rem) {
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .md-header {
+    max-width: calc(100vw - 0.6rem) !important;
+    overflow: hidden;
+  }
+
+  .md-sidebar--primary {
+    display: block !important;
+  }
+
+  .md-header__inner {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    gap: 0.08rem;
+  }
+
+  .md-header__button[for="__drawer"] {
+    display: inline-flex !important;
+    flex: 0 0 2rem;
+    width: 2rem;
+    height: 2rem;
+    margin: 0 0.08rem 0 0 !important;
+    padding: 0.38rem !important;
+  }
+
+  .md-header__spacer {
+    display: none !important;
+  }
+
+  .md-header .switch-wrap {
+    margin: 0 0.08rem !important;
+  }
+
+  .md-header .switch {
+    width: 3.05rem;
+    height: 1.32rem;
+  }
+
+  .md-header .switch .switch-label {
+    font-size: 0.55rem;
+  }
+
+  .md-header .md-search {
+    position: relative !important;
+    inset: auto !important;
+    flex: 0 0 5.2rem !important;
+    width: 5.2rem !important;
+    min-width: 0 !important;
+    margin: 0 0 0 0.12rem !important;
+    padding: 0 !important;
+    z-index: 2 !important;
+  }
+
+  .md-header .md-search__inner,
+  .md-header .md-search__form {
+    position: relative !important;
+    inset: auto !important;
+    width: 5.2rem !important;
+    max-width: 5.2rem !important;
+    transform: none !important;
+  }
+
+  .md-header .md-search__input {
+    padding-left: 1.75rem !important;
+    padding-right: 0.45rem !important;
+    font-size: 0.7rem !important;
+  }
+
+  .md-header .md-search__icon[for="__search"] {
+    width: 1.75rem !important;
+    height: 1.7rem !important;
+  }
+
+  .md-header .md-search__icon[for="__search"] svg:first-child {
+    display: block !important;
+  }
+
+  .md-header .md-search__icon[for="__search"] svg:nth-child(2) {
+    display: none !important;
+  }
+
+  .md-header .md-search__output {
+    right: 0 !important;
+    left: auto !important;
+    width: min(20rem, calc(100vw - 1rem)) !important;
+  }
+
+  .home-banner__content,
+  .home-banner__content p {
+    max-width: calc(100% - 1rem);
+    overflow-wrap: anywhere;
+  }
+
+  .md-main,
+  .md-main__inner,
+  .md-content,
+  .home-layout,
+  .home-main,
+  .home-sidebar,
+  .home-about,
+  .home-about-grid {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  /* 首页曾同时使用 width:100% 与左右外边距，导致手机内容实际比视口更宽。 */
+  body:has(.home-banner) .md-content__inner,
+  .md-content__inner {
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: calc(100vw - 0.8rem) !important;
+    margin-left: 0.4rem !important;
+    margin-right: 0.4rem !important;
+    box-sizing: border-box;
+  }
+
+  .home-layout,
+  .home-main,
+  .home-sidebar,
+  .home-about,
+  .home-latest,
+  .home-profile-card,
+  .home-side-card {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+
+  .home-about-intro h2,
+  .home-about-intro p {
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media screen and (max-width: 23rem) {
+  .md-header .switch {
+    width: 2.72rem;
+  }
+
+  .md-header .md-search,
+  .md-header .md-search__inner,
+  .md-header .md-search__form {
+    width: 4.9rem !important;
+    max-width: 4.9rem !important;
+  }
+}
+
+@media screen and (min-width: 48.0625rem) {
+  .md-sidebar--primary {
+    display: none !important;
   }
 }
