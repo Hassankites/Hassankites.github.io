@@ -1,16 +1,8 @@
-<!-- 自定义头像：裁切为内切圆 -->
-<a
-  href="{{ config.site_url | default(nav.homepage.url, true) | url }}"
-  title="{{ config.site_name }}"
-  class="md-header__button md-logo"
-  aria-label="{{ config.site_name }}"
-  data-md-component="logo"
->
-  <img
-    src="{{ 'assets/images/avatar.jpg' | url }}"
-    alt="{{ config.site_name }}"
-    class="md-logo-img"
-    width="72"
-    height="72"
-  />
-</a>
+<!-- 外层链接由 Material 模板生成；此处只输出头像，避免嵌套链接破坏移动端排版。 -->
+<img
+  src="{{ 'assets/images/avatar.jpg' | url }}"
+  alt="{{ config.site_name }}"
+  class="md-logo-img"
+  width="72"
+  height="72"
+/>

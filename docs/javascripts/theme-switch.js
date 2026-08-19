@@ -28,6 +28,8 @@
     body.setAttribute("data-md-color-accent", "pink");
     body.style.colorScheme = isSlate ? "dark" : "only light";
     body.style.backgroundColor = isSlate ? "#1e2129" : "#f7f7fa";
+    var themeMeta = document.getElementById("site-theme-color");
+    if (themeMeta) themeMeta.setAttribute("content", isSlate ? "#1e2129" : "#f7f7fa");
 
     try {
       localStorage.setItem(STORAGE_KEY, scheme);
@@ -77,6 +79,12 @@
 
   window.applySiteScheme = applyScheme;
 
+  function revealSite() {
+    window.requestAnimationFrame(function () {
+      document.documentElement.classList.add("site-theme-ready");
+    });
+  }
+
   /* 脚本位于页面底部，先同步一次已保存主题，再创建控件。 */
   try {
     var initial = localStorage.getItem(STORAGE_KEY);
@@ -87,7 +95,9 @@
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", buildThemeSlider);
+    document.addEventListener("DOMContentLoaded", revealSite);
   } else {
     buildThemeSlider();
+    revealSite();
   }
 })();

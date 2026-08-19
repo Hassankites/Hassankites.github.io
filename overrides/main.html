@@ -1,14 +1,49 @@
 {% extends "base.html" %}
 
 {% block extrahead %}
-  <meta name="color-scheme" content="light dark">
-  <meta name="supported-color-schemes" content="light dark">
+  {# 网站自行管理日夜主题，禁止移动浏览器按系统设置二次染色。 #}
+  <meta name="color-scheme" content="only light">
+  <meta name="supported-color-schemes" content="light">
+  <meta id="site-theme-color" name="theme-color" content="#f7f7fa">
+  <script>
+    /* 必须先于全部页面样式执行，避免夜间跨页面加载时先绘制浅色首帧。 */
+    (function () {
+      var root = document.documentElement;
+      try {
+        var saved = localStorage.getItem("mkdocs-theme");
+        var scheme = saved === "slate" ? "slate" : "default";
+        var color = scheme === "slate" ? "#1e2129" : "#f7f7fa";
+        root.setAttribute("data-prepaint-scheme", scheme);
+        root.setAttribute("data-site-theme", scheme);
+        root.style.backgroundColor = color;
+        root.style.colorScheme = scheme === "slate" ? "dark" : "only light";
+        var themeMeta = document.getElementById("site-theme-color");
+        if (themeMeta) themeMeta.setAttribute("content", color);
+      } catch (e) {
+        root.setAttribute("data-prepaint-scheme", "default");
+      }
+      /* 外部脚本异常时也不永久隐藏正文。 */
+      window.setTimeout(function () { root.classList.add("site-theme-ready"); }, 1400);
+    })();
+  </script>
   <style>
     html { background: #f7f7fa; }
+    html:not(.site-theme-ready) body { visibility: hidden !important; }
     html[data-prepaint-scheme="slate"],
-    html[data-prepaint-scheme="slate"] body { background: #1e2129 !important; color-scheme: dark; }
+    html[data-prepaint-scheme="slate"] body,
+    html[data-prepaint-scheme="slate"] body .md-container,
+    html[data-prepaint-scheme="slate"] body .md-main,
+    html[data-prepaint-scheme="slate"] body .md-main__inner,
+    html[data-prepaint-scheme="slate"] body .md-content {
+      background: #1e2129 !important;
+      color-scheme: dark;
+    }
     html[data-prepaint-scheme="default"],
-    html[data-prepaint-scheme="default"] body {
+    html[data-prepaint-scheme="default"] body,
+    html[data-prepaint-scheme="default"] body .md-container,
+    html[data-prepaint-scheme="default"] body .md-main,
+    html[data-prepaint-scheme="default"] body .md-main__inner,
+    html[data-prepaint-scheme="default"] body .md-content {
       background: #f7f7fa !important;
       color-scheme: only light;
     }
@@ -44,17 +79,4 @@
       }
     }
   </style>
-  <script>
-    /* 在首帧绘制前确定页面底色，避免深色页面导航时闪出白屏。 */
-    (function () {
-      try {
-        var saved = localStorage.getItem("mkdocs-theme");
-        var scheme = saved === "slate" ? "slate" : "default";
-        document.documentElement.setAttribute("data-prepaint-scheme", scheme);
-        document.documentElement.style.backgroundColor = scheme === "slate" ? "#1e2129" : "#f7f7fa";
-      } catch (e) {
-        document.documentElement.setAttribute("data-prepaint-scheme", "default");
-      }
-    })();
-  </script>
 {% endblock %}

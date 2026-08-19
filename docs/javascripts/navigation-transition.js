@@ -13,9 +13,11 @@
     shield.className = "page-transition-shield";
     shield.style.backgroundColor = isSlate() ? "#1e2129" : "#f7f7fa";
     document.body.appendChild(shield);
-    shield.getBoundingClientRect();
     shield.classList.add("is-visible");
-    window.setTimeout(function () { window.location.href = url; }, 130);
+    /* 先让遮罩完整绘制一帧，再开始跨文档导航。 */
+    window.requestAnimationFrame(function () {
+      window.requestAnimationFrame(function () { window.location.href = url; });
+    });
   }
 
   window.navigateWithTransition = navigate;
@@ -32,4 +34,12 @@
     event.preventDefault();
     navigate(target.href);
   }, true);
+
+  /* 从浏览器的前进/后退缓存恢复时，清掉旧页面留下的遮罩。 */
+  window.addEventListener("pageshow", function () {
+    navigating = false;
+    document.querySelectorAll(".page-transition-shield").forEach(function (shield) {
+      shield.remove();
+    });
+  });
 })();
