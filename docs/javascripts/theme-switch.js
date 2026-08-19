@@ -1,6 +1,8 @@
-/* 日/夜主题切换滑块脚本（复用 Material 内置 palette 机制，避免闪动） */
+/* 日/夜主题切换：单一状态源，不再与 Material 隐藏 palette 互相覆盖。 */
 (function () {
   "use strict";
+
+  var STORAGE_KEY = "mkdocs-theme";
 
   function getCurrentScheme() {
     var body = document.body;
@@ -9,46 +11,34 @@
   }
 
   function applyScheme(scheme) {
-    // 先同步根节点与正文，再触发 Material 机制，避免顶部栏先变而正文滞后。
+    scheme = scheme === "slate" ? "slate" : "default";
     var isSlate = scheme === "slate";
     var root = document.documentElement;
+    var body = document.body;
+    if (!body) return;
+
     root.classList.add("theme-switching");
     root.setAttribute("data-prepaint-scheme", scheme);
+    root.setAttribute("data-site-theme", scheme);
+    root.style.colorScheme = isSlate ? "dark" : "only light";
     root.style.backgroundColor = isSlate ? "#1e2129" : "#f7f7fa";
-    document.body.setAttribute("data-md-color-scheme", scheme);
-    document.body.setAttribute("data-md-color-primary", "indigo");
-    document.body.setAttribute("data-md-color-accent", "pink");
-    var targetId = isSlate ? "__palette_1" : "__palette_0";
-    var radio = document.getElementById(targetId);
-    if (radio) {
-      radio.checked = true;
-    }
+    body.setAttribute("data-md-color-scheme", scheme);
+    body.setAttribute("data-site-theme", scheme);
+    body.setAttribute("data-md-color-primary", "indigo");
+    body.setAttribute("data-md-color-accent", "pink");
+    body.style.colorScheme = isSlate ? "dark" : "only light";
+    body.style.backgroundColor = isSlate ? "#1e2129" : "#f7f7fa";
+
     try {
-      localStorage.setItem("mkdocs-theme", scheme);
-      // 同步 Material 自身的配色存储，避免移动端刷新后两个状态互相覆盖。
-      if (typeof window.__md_set === "function") {
-        window.__md_set("__palette", {
-          color: {
-            scheme: scheme,
-            primary: "indigo",
-            accent: "pink"
-          }
-        });
-      }
+      localStorage.setItem(STORAGE_KEY, scheme);
     } catch (e) {}
-    // 某些移动浏览器会在当前任务末尾重新应用 Material 的旧状态，
-    // 下一帧再次校准正文属性，保证开关与页面配色始终一致。
-    window.requestAnimationFrame(function () {
-      document.body.setAttribute("data-md-color-scheme", scheme);
-      document.body.setAttribute("data-md-color-primary", "indigo");
-      document.body.setAttribute("data-md-color-accent", "pink");
-    });
+
     window.setTimeout(function () { root.classList.remove("theme-switching"); }, 450);
   }
 
   function buildThemeSlider() {
     var saved = null;
-    try { saved = localStorage.getItem("mkdocs-theme"); } catch (e) {}
+    try { saved = localStorage.getItem(STORAGE_KEY); } catch (e) {}
     if (saved === "slate" || saved === "default") applyScheme(saved);
     var current = getCurrentScheme();
     var isDark = current === "slate";
@@ -87,9 +77,18 @@
 
   window.applySiteScheme = applyScheme;
 
+  /* 脚本位于页面底部，先同步一次已保存主题，再创建控件。 */
+  try {
+    var initial = localStorage.getItem(STORAGE_KEY);
+    applyScheme(initial === "slate" ? "slate" : "default");
+  } catch (e) {
+    applyScheme("default");
+  }
+
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", buildThemeSlider);
   } else {
     buildThemeSlider();
   }
 })();
+

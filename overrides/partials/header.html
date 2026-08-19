@@ -25,14 +25,8 @@
       </nav>
     {% endif %}
     <div class="md-header__spacer"></div>
-    {% if config.theme.palette %}
-      {% if not config.theme.palette is mapping %}
-        {% include "partials/palette.html" %}
-      {% endif %}
-    {% endif %}
-    {% if not config.theme.palette is mapping %}
-      {% include "partials/javascripts/palette.html" %}
-    {% endif %}
+    {# 主题由 theme-switch.js 单独管理。不要再载入 Material 的隐藏 palette
+       状态，否则部分移动浏览器会在点击后把刚切换的主题覆盖回去。 #}
     {% if config.extra.alternate %}
       {% include "partials/alternate.html" %}
     {% endif %}
@@ -53,3 +47,4 @@
     {% endif %}
   </nav>
 </header>
+

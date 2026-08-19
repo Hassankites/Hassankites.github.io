@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 
 {% block extrahead %}
+  <meta name="color-scheme" content="light dark">
+  <meta name="supported-color-schemes" content="light dark">
   <style>
     html { background: #f7f7fa; }
     html[data-prepaint-scheme="slate"],
     html[data-prepaint-scheme="slate"] body { background: #1e2129 !important; color-scheme: dark; }
     html[data-prepaint-scheme="default"],
-    html[data-prepaint-scheme="default"] body { background: #f7f7fa !important; color-scheme: light; }
+    html[data-prepaint-scheme="default"] body {
+      background: #f7f7fa !important;
+      color-scheme: only light;
+    }
     @media print {
       :root {
         --md-default-bg-color: #fff !important;
@@ -53,3 +58,4 @@
     })();
   </script>
 {% endblock %}
+
