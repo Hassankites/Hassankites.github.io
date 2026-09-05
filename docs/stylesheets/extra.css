@@ -3860,3 +3860,11 @@ body[data-md-color-scheme="slate"] .home-side-card {
   .home-main .home-about, .home-main .home-latest { padding-bottom: 1.4rem; }
   .home-main .home-latest__card { gap: .9rem; }
 }
+
+/* Cover profile floats directly over the photograph in both themes. */
+body.home-cover-active[data-md-color-scheme] .home-profile-card {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
