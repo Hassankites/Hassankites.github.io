@@ -13,10 +13,10 @@ hide:
 <div class="home-layout">
 <main class="home-main">
 <section class="home-about" id="about">
-  <div class="home-section-label">PROFILE · ABOUT ME</div>
+
   <div class="home-about-grid">
     <div class="home-about-intro">
-      <h2>Infinite learning, infinite progress.</h2>
+      <h2>About me</h2>
       <p>I'm Jim Xu, an undergraduate in Computer Science and Technology at Zhejiang University. My interests include agent tools, personal software, web development, and continued exploration in CG/CV. Outside of computing, I am passionate about photography. As you can see, the cover of this website is one of my photographs.</p>
     </div>
     <div class="home-about-facts">
@@ -27,7 +27,7 @@ hide:
   </div>
 </section>
 <section class="home-latest">
-  <div class="home-latest__heading"><div><span>JOURNAL</span><h2>Latest Article</h2></div><a href="blogger/">View all</a></div>
+  <div class="home-latest__heading"><div><h2>Latest Article</h2></div><a href="blogger/">View all</a></div>
   <div id="home-latest-article"></div>
 </section>
 </main>
@@ -44,7 +44,7 @@ hide:
       <div class="stat-item"><span class="stat-value" data-stat="articles">0</span><span class="stat-label">Articles</span></div>
     </div>
   </section>
-  <section class="home-side-card"><div class="home-side-heading"><span>UPDATES</span><h2>Recent Updates</h2></div><ul class="recent-list" id="recent-updates"></ul></section>
-  <section class="home-side-card home-notice"><div class="home-side-heading"><span>NOTICE</span><h2>Bulletin</h2></div><p>Welcome to Hassankite's site!</p><time datetime="2026-08-18">2026.08.18</time></section>
+  <section class="home-side-card"><div class="home-side-heading"><h2>Recent Updates</h2></div><ul class="recent-list" id="recent-updates"></ul></section>
+  <section class="home-side-card home-notice"><div class="home-side-heading"><h2>Bulletin</h2></div><p>Welcome to Hassankite's site!</p><time datetime="2026-08-18">2026.08.18</time></section>
 </aside>
 </div>

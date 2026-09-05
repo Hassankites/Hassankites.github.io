@@ -845,22 +845,33 @@ body,
 }
 
 .home-profile-card .site-stats {
-  gap: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
   margin-top: 0.25rem;
   padding-top: 0.85rem;
   border-top: 1px solid rgba(127, 127, 213, 0.14);
 }
 
 .home-profile-card .stat-item {
+  min-width: 0;
   padding: 0.2rem 0;
+  gap: 0.3rem;
 }
 
 .home-profile-card .stat-value {
   font-size: 0.9rem;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
 }
 
 .home-profile-card .stat-label {
-  font-size: 0.52rem;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  letter-spacing: normal;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .home-side-heading span {
@@ -3768,4 +3779,84 @@ body,
     max-width: 4.35rem !important;
     flex-basis: 4.35rem !important;
   }
+}
+
+
+/* Homepage reading layout: open main column, quiet sidebar, restrained accents. */
+body:has(.home-layout) {
+  --home-rule: rgba(40, 44, 52, .14);
+  --home-surface: rgba(255, 255, 255, .55);
+  --home-muted: #626773;
+}
+body[data-md-color-scheme="slate"]:has(.home-layout) {
+  --home-rule: rgba(222, 226, 234, .16);
+  --home-surface: rgba(255, 255, 255, .025);
+  --home-muted: #b2b7c2;
+}
+.home-layout { gap: 2rem; }
+.home-main { gap: 2rem; }
+.home-main .home-about,
+.home-main .home-latest {
+  padding: 0 0 1.8rem;
+  border: 0;
+  border-bottom: 1px solid var(--home-rule);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+body[data-md-color-scheme="slate"] .home-main .home-latest { background: transparent; }
+.home-main .home-about-grid { margin-top: 0; gap: 1.8rem; }
+.home-main .home-about-intro h2,
+.home-main .home-latest__heading h2 {
+  margin: 0 0 .8rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  letter-spacing: normal;
+}
+.home-main .home-latest__heading h2 { margin-bottom: 0; }
+.home-main .home-about-intro p { color: var(--md-typeset-color); line-height: 1.95; }
+.home-main .home-about-facts { margin-top: 0; }
+.home-main .home-about-facts > div { border-color: var(--home-rule); padding: .6rem 0; }
+.home-main .home-about-facts span { color: var(--home-muted); font-size: .7rem; letter-spacing: normal; }
+.home-main .home-about-facts strong { font-family: inherit; font-size: .78rem; font-weight: 500; }
+.home-main .home-latest__card,
+.home-main .home-latest__card:hover {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.home-main .home-latest__card { gap: 1.25rem; }
+.home-main .home-latest__cover { overflow: hidden; border-radius: .25rem; }
+.home-main .home-latest__body { padding: .15rem 0; }
+.home-main .home-latest__body time { color: var(--home-muted); font-size: .7rem; letter-spacing: normal; }
+.home-main .home-latest__body h3 { letter-spacing: normal; }
+.home-main .home-latest__tag { background: transparent; border: 0; padding: 0; color: var(--home-muted); }
+.home-profile-card,
+.home-side-card,
+body[data-md-color-scheme="slate"] .home-profile-card,
+body[data-md-color-scheme="slate"] .home-side-card {
+  background: var(--home-surface);
+  border-color: var(--home-rule);
+  border-radius: .3rem;
+  box-shadow: none;
+}
+.home-profile-card .home-avatar { box-shadow: 0 0 0 1px var(--home-rule); }
+.home-profile-card .home-link { border-color: var(--home-rule); box-shadow: none; background: transparent; }
+.home-profile-card .site-stats { border-color: var(--home-rule); }
+.home-profile-card .stat-value { color: var(--md-typeset-color); }
+.home-profile-card .stat-label { color: var(--home-muted); }
+.md-content article .home-side-heading h2 { margin-top: 0; font-size: .85rem; letter-spacing: normal; }
+.home-side-card .recent-list { font-size: .72rem; text-align: left; }
+.home-side-card .recent-list li { border-color: var(--home-rule); }
+.home-side-card.home-notice p { font-size: .75rem; }
+.home-side-card.home-notice time { color: var(--home-muted); }
+@media screen and (max-width: 60rem) {
+  .home-layout { gap: 1.4rem; }
+  .home-main .home-about-grid { grid-template-columns: 1fr; gap: 1rem; }
+}
+@media screen and (max-width: 32rem) {
+  .home-main { gap: 1.5rem; }
+  .home-main .home-about, .home-main .home-latest { padding-bottom: 1.4rem; }
+  .home-main .home-latest__card { gap: .9rem; }
 }

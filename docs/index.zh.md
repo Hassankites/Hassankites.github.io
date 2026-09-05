@@ -13,10 +13,10 @@ hide:
 <div class="home-layout">
 <main class="home-main">
 <section class="home-about" id="about">
-  <div class="home-section-label">PROFILE · 关于我</div>
+
   <div class="home-about-grid">
     <div class="home-about-intro">
-      <h2>无限学习，无限进步</h2>
+      <h2>关于我</h2>
       <p>你好，我是徐梓涵，浙江大学计算机科学与技术专业本科生。我关注 Agent 工具、个人开发与 Web 技术，也在持续探索 CG/CV 方向。在生活中我热爱摄影。如你所见，这个网站的封面就是我的作品之一。</p>
     </div>
     <div class="home-about-facts">
@@ -27,7 +27,7 @@ hide:
   </div>
 </section>
 <section class="home-latest">
-  <div class="home-latest__heading"><div><span>JOURNAL</span><h2>最新文章</h2></div><a href="blogger/">查看全部</a></div>
+  <div class="home-latest__heading"><div><h2>最新文章</h2></div><a href="blogger/">查看全部</a></div>
   <div id="home-latest-article"></div>
 </section>
 </main>
@@ -44,7 +44,7 @@ hide:
       <div class="stat-item"><span class="stat-value" data-stat="articles">0</span><span class="stat-label">文章</span></div>
     </div>
   </section>
-  <section class="home-side-card"><div class="home-side-heading"><span>UPDATES</span><h2>最近更新</h2></div><ul class="recent-list" id="recent-updates"></ul></section>
-  <section class="home-side-card home-notice"><div class="home-side-heading"><span>NOTICE</span><h2>公告栏</h2></div><p>欢迎来到Hassankite的小站！</p><time datetime="2026-08-18">2026.08.18</time></section>
+  <section class="home-side-card"><div class="home-side-heading"><h2>最近更新</h2></div><ul class="recent-list" id="recent-updates"></ul></section>
+  <section class="home-side-card home-notice"><div class="home-side-heading"><h2>公告栏</h2></div><p>欢迎来到Hassankite的小站！</p><time datetime="2026-08-18">2026.08.18</time></section>
 </aside>
 </div>
