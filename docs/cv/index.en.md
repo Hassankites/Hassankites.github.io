@@ -9,7 +9,6 @@
 
 <div class="cv-hero">
   <div class="cv-hero-main">
-    <div class="cv-eyebrow">RESUME · CURRICULUM VITAE</div>
     <h1 class="cv-name">Jim Xu <span class="cv-name-en">徐梓涵 · XU ZIHAN</span></h1>
     <p class="cv-subtitle">Zhejiang University · Computer Science &amp; Technology · Undergraduate</p>
     <div class="cv-contact">
@@ -51,7 +50,7 @@
     <div>
       <div class="cv-item-title">Zhejiang University · B.S. in Computer Science</div>
     </div>
-    <span class="cv-item-date">2025.09 — Present</span>
+    <span class="cv-item-date">2025.09 - Present</span>
   </div>
 </div>
 
@@ -60,7 +59,7 @@
 <div class="cv-card">
   <div class="cv-item cv-item--stacked">
     <div class="cv-item-head">
-      <span class="cv-item-date">2025.09 — 2026.06</span>
+      <span class="cv-item-date">2025.09 - 2026.06</span>
     </div>
     <div class="cv-item-title">Chu Kochen Honors College, ZJU · Student Youth League Committee Office</div>
   </div>
@@ -68,7 +67,7 @@
     <div>
       <div class="cv-item-title">Fangke Club, ZJU · Vice Director of Publicity Department</div>
     </div>
-    <span class="cv-item-date">2026.08 — Present</span>
+    <span class="cv-item-date">2026.08 - Present</span>
   </div>
 </div>
 
@@ -78,16 +77,9 @@
   <article class="cv-project">
     <div class="cv-project-head">
       <div class="cv-project-title">Personal Blog Website</div>
-      <span class="cv-item-date">2026.08 — Present</span>
+      <span class="cv-item-date">2026.08 - Present</span>
     </div>
-    <ul class="cv-tags cv-project-tags">
-      <li class="cv-tag">MkDocs / Material / Markdown</li>
-      <li class="cv-tag">Vanilla JavaScript / Custom CSS</li>
-      <li class="cv-tag">Bilingual Content Architecture / Metadata-Driven Generation</li>
-      <li class="cv-tag">GitHub Actions / GitHub Pages</li>
-      <li class="cv-tag">Static-Site Generation Pipeline / Responsive Interaction System</li>
-    </ul>
-    <p>Independently built a publicly accessible personal website integrating personal presentation, content publishing, résumé presentation, and a friends-link architecture. The project uses a content-driven, purely static front-end architecture, manages articles through Markdown, and integrates GitHub Actions for automated builds and continuous deployment.</p>
+    <p class="cv-project-summary">Independently built a publicly accessible personal website integrating personal presentation, content publishing, résumé presentation, and a friends-link architecture. The project uses a content-driven, purely static front-end architecture, manages articles through Markdown, and integrates GitHub Actions for automated builds and continuous deployment.</p>
     <ul class="cv-project-points">
       <li>Built the site architecture and interactions with MkDocs, Material, and custom HTML / CSS / JavaScript.</li>
       <li>Implemented the home, About, article list and detail, résumé, log, friends, and announcement modules.</li>
@@ -96,25 +88,32 @@
       <li>Created a full-screen photography poster, click-to-expand transition, dynamic typing, theme transitions, and a custom cursor interaction.</li>
       <li>Automated builds, HTTPS access, and public deployment through GitHub Actions and GitHub Pages.</li>
     </ul>
+    <ul class="cv-tags cv-project-tags">
+      <li class="cv-tag">MkDocs / Material / Markdown</li>
+      <li class="cv-tag">Vanilla JavaScript / Custom CSS</li>
+      <li class="cv-tag">Bilingual Content Architecture / Metadata-Driven Generation</li>
+      <li class="cv-tag">GitHub Actions / GitHub Pages</li>
+      <li class="cv-tag">Static-Site Generation Pipeline / Responsive Interaction System</li>
+    </ul>
     <a class="cv-project-link" href="https://hassankites.github.io/" target="_blank" rel="noopener">Visit the live site →</a>
   </article>
 
   <article class="cv-project">
     <div class="cv-project-head">
       <div class="cv-project-title">Monthly-Salary Cat Desktop Pet</div>
-      <span class="cv-item-date">2026.07 — Present</span>
+      <span class="cv-item-date">2026.07 - Present</span>
     </div>
-    <ul class="cv-tags cv-project-tags">
-      <li class="cv-tag">Python + PySide6</li>
-      <li class="cv-tag">GIF Rendering Pipeline</li>
-      <li class="cv-tag">Dynamic Window Adaptation</li>
-      <li class="cv-tag">Layered Decoupled Architecture</li>
-    </ul>
     <ul class="cv-project-points">
       <li>Independently developed a lightweight desktop pet application with Python and PySide6.</li>
       <li>Used Qt QMovie for GIF playback and dynamically adapted the window to each animation's dimensions.</li>
       <li>Designed a multi-state animation state machine supporting random playback, locked loops, and manual switching through a context menu.</li>
       <li>Applied a layered architecture (main → pet_window → pet → animation) and packaged the application as a standalone EXE with PyInstaller.</li>
+    </ul>
+    <ul class="cv-tags cv-project-tags">
+      <li class="cv-tag">Python + PySide6</li>
+      <li class="cv-tag">GIF Rendering Pipeline</li>
+      <li class="cv-tag">Dynamic Window Adaptation</li>
+      <li class="cv-tag">Layered Decoupled Architecture</li>
     </ul>
     <a class="cv-project-link" href="https://github.com/Hassankites/-lightweight-desktop-pet-application-" target="_blank" rel="noopener">View on GitHub →</a>
   </article>
@@ -122,15 +121,15 @@
   <article class="cv-project">
     <div class="cv-project-head">
       <div class="cv-project-title">Dinasour · Color Runner Game</div>
-      <span class="cv-item-date">2026.05 — 2026.07</span>
+      <span class="cv-item-date">2026.05 - 2026.07</span>
     </div>
+    <p class="cv-project-summary">For the final project of ZJU's CS1019F Digital Logic Design course, I collaborated with a teammate to build a color dinosaur runner inspired by Google's offline dinosaur game. We delivered a Kintex-7-based hardware–software system with physical keyboard / PS input and distributed rendering across the FPGA and a PC.</p>
     <ul class="cv-tags cv-project-tags">
       <li class="cv-tag">FPGA / PC Heterogeneous Co-design</li>
       <li class="cv-tag">Kintex-7 Real-Time Logic</li>
       <li class="cv-tag">Input Device Driver Path</li>
       <li class="cv-tag">Distributed Graphics Rendering</li>
     </ul>
-    <p>For the final project of ZJU's CS1019F Digital Logic Design course, I collaborated with a teammate to build a color dinosaur runner inspired by Google's offline dinosaur game. We delivered a Kintex-7-based hardware–software system with physical keyboard / PS input and distributed rendering across the FPGA and a PC.</p>
     <a class="cv-project-link" href="https://github.com/Hassankites/fpga-chrome-dino-run" target="_blank" rel="noopener">View on GitHub →</a>
   </article>
 </div>

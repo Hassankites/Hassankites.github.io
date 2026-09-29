@@ -1,4 +1,4 @@
-<div class="subpage-hero"><p>CHANGELOG</p><h1>日志</h1><div>记录网站、项目与个人学习轨迹的重要更新。</div></div>
+<div class="subpage-hero"><h1>日志</h1><div>记录网站、项目与个人学习轨迹的重要更新。</div></div>
 
 <div class="cl-toc">
   <div class="cl-toc-title">年份</div>
@@ -12,6 +12,16 @@
 </div>
 
 <ul class="cl-list">
+  <li class="cl-item">
+    <span class="cl-icon">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>
+    </span>
+    <div class="cl-body">
+      <div class="cl-date">2026.9.29</div>
+      <span class="cl-tag">网页优化</span>
+      <div class="cl-text">优化主页设计</div>
+    </div>
+  </li>
   <li class="cl-item">
     <span class="cl-icon">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"/></svg>

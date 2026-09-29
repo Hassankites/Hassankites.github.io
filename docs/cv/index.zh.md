@@ -9,7 +9,6 @@
 
 <div class="cv-hero">
   <div class="cv-hero-main">
-    <div class="cv-eyebrow">RESUME · 个人简历</div>
     <h1 class="cv-name">徐梓涵 <span class="cv-name-en">JIM XU</span></h1>
     <p class="cv-subtitle">浙江大学 · 计算机科学与技术 · 本科在读</p>
     <div class="cv-contact">
@@ -51,7 +50,7 @@
     <div>
       <div class="cv-item-title">浙江大学 · 计算机科学与技术（本科）</div>
     </div>
-    <span class="cv-item-date">2025.09 — 至今</span>
+    <span class="cv-item-date">2025.09 - 至今</span>
   </div>
 </div>
 
@@ -62,13 +61,13 @@
     <div>
       <div class="cv-item-title">浙江大学 竺可桢学院 · 学生团委办公室干事</div>
     </div>
-    <span class="cv-item-date">2025.09 — 2026.06</span>
+    <span class="cv-item-date">2025.09 - 2026.06</span>
   </div>
   <div class="cv-item">
     <div>
       <div class="cv-item-title">浙江大学 放课俱乐部 · 宣传部副部长</div>
     </div>
-    <span class="cv-item-date">2026.08 — 至今</span>
+    <span class="cv-item-date">2026.08 - 至今</span>
   </div>
 </div>
 
@@ -78,16 +77,9 @@
   <article class="cv-project">
     <div class="cv-project-head">
       <div class="cv-project-title">个人博客网站</div>
-      <span class="cv-item-date">2026.08 — 至今</span>
+      <span class="cv-item-date">2026.08 - 至今</span>
     </div>
-    <ul class="cv-tags cv-project-tags">
-      <li class="cv-tag">MkDocs / Material / Markdown</li>
-      <li class="cv-tag">Vanilla JavaScript / Custom CSS</li>
-      <li class="cv-tag">双语内容架构 / 元数据驱动生成</li>
-      <li class="cv-tag">GitHub Actions / GitHub Pages</li>
-      <li class="cv-tag">静态站点生成管线 / 响应式交互系统</li>
-    </ul>
-    <p>独立完成一个可公开访问的个人网站项目，包含“个人展示 + 内容发布 + 履历呈现 + 友链架构”的设计。项目采用内容驱动的纯前端静态架构，通过 Markdown 管理文章，并接入 GitHub Actions 完成自动构建与持续部署。</p>
+    <p class="cv-project-summary">独立完成一个可公开访问的个人网站项目，包含“个人展示 + 内容发布 + 履历呈现 + 友链架构”的设计。项目采用内容驱动的纯前端静态架构，通过 Markdown 管理文章，并接入 GitHub Actions 完成自动构建与持续部署。</p>
     <ul class="cv-project-points">
       <li>基于 MkDocs、Material、自定义 HTML / CSS / JavaScript 完成网站架构与交互开发。</li>
       <li>实现首页、About、文章列表与详情、简历、日志、友链及公告等内容模块。</li>
@@ -96,25 +88,32 @@
       <li>设计全屏摄影海报、点击展开转场、动态打字、主题过渡与自定义光标交互。</li>
       <li>通过 GitHub Actions 与 GitHub Pages 实现自动化构建、HTTPS 接入和公开部署。</li>
     </ul>
+    <ul class="cv-tags cv-project-tags">
+      <li class="cv-tag">MkDocs / Material / Markdown</li>
+      <li class="cv-tag">Vanilla JavaScript / Custom CSS</li>
+      <li class="cv-tag">双语内容架构 / 元数据驱动生成</li>
+      <li class="cv-tag">GitHub Actions / GitHub Pages</li>
+      <li class="cv-tag">静态站点生成管线 / 响应式交互系统</li>
+    </ul>
     <a class="cv-project-link" href="https://hassankites.github.io/" target="_blank" rel="noopener">访问公开网站 →</a>
   </article>
 
   <article class="cv-project">
     <div class="cv-project-head">
       <div class="cv-project-title">月薪猫桌宠</div>
-      <span class="cv-item-date">2026.07 — 至今</span>
+      <span class="cv-item-date">2026.07 - 至今</span>
     </div>
-    <ul class="cv-tags cv-project-tags">
-      <li class="cv-tag">Python + PySide6</li>
-      <li class="cv-tag">GIF 渲染管线</li>
-      <li class="cv-tag">窗口动态自适应</li>
-      <li class="cv-tag">分层解耦架构</li>
-    </ul>
     <ul class="cv-project-points">
       <li>独立开发基于 Python + PySide6 的轻量级桌面宠物程序。</li>
       <li>采用 Qt QMovie 实现 GIF 动画播放，支持窗口随动画尺寸动态自适应。</li>
       <li>设计包含多种状态的动画状态机，支持随机播放、锁定循环及右键菜单手动切换。</li>
       <li>采用分层架构（main → pet_window → pet → animation），并通过 PyInstaller 打包为独立 EXE。</li>
+    </ul>
+    <ul class="cv-tags cv-project-tags">
+      <li class="cv-tag">Python + PySide6</li>
+      <li class="cv-tag">GIF 渲染管线</li>
+      <li class="cv-tag">窗口动态自适应</li>
+      <li class="cv-tag">分层解耦架构</li>
     </ul>
     <a class="cv-project-link" href="https://github.com/Hassankites/-lightweight-desktop-pet-application-" target="_blank" rel="noopener">查看 GitHub 项目 →</a>
   </article>
@@ -122,15 +121,15 @@
   <article class="cv-project">
     <div class="cv-project-head">
       <div class="cv-project-title">Dinasour · 彩色小恐龙跑酷游戏</div>
-      <span class="cv-item-date">2026.05 — 2026.07</span>
+      <span class="cv-item-date">2026.05 - 2026.07</span>
     </div>
+    <p class="cv-project-summary">在浙江大学 CS1019F《数字逻辑设计》课程大作业中，与一位同伴合作制作彩色小恐龙跑酷游戏。项目灵感来源于 Google 小恐龙游戏，最终实现基于 Kintex-7 的软硬件协同系统：物理键盘 / PS 驱动，FPGA 与 PC 分布式渲染。</p>
     <ul class="cv-tags cv-project-tags">
       <li class="cv-tag">FPGA / PC 异构协同</li>
       <li class="cv-tag">Kintex-7 实时逻辑</li>
       <li class="cv-tag">输入设备驱动链路</li>
       <li class="cv-tag">分布式图形渲染</li>
     </ul>
-    <p>在浙江大学 CS1019F《数字逻辑设计》课程大作业中，与一位同伴合作制作彩色小恐龙跑酷游戏。项目灵感来源于 Google 小恐龙游戏，最终实现基于 Kintex-7 的软硬件协同系统：物理键盘 / PS 驱动，FPGA 与 PC 分布式渲染。</p>
     <a class="cv-project-link" href="https://github.com/Hassankites/fpga-chrome-dino-run" target="_blank" rel="noopener">查看 GitHub 项目 →</a>
   </article>
 </div>

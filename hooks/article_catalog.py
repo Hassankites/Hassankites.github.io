@@ -67,7 +67,8 @@ def _card(article, locale, featured=False):
         cover = "../" + cover
     read_label = "阅读全文" if locale == "zh" else "Read article"
     return f'''<a class="{klass}" href="{article['url']}">
-  <div class="article-card__cover"><img src="{cover}" alt="{article['title']}" loading="lazy"></div>
+
+  <div class="article-card__cover"><img src="{cover}" alt="" loading="lazy" width="640" height="480"></div>
   <div class="article-card__body">
     <time class="article-card__date" datetime="{article['date']}">{article['date'].replace('-', '.')}</time>
     <h3 class="article-card__title">{article['title']}</h3>
@@ -83,32 +84,11 @@ def _render(locale):
     zh = locale == "zh"
     title = "文章" if zh else "Articles"
     intro = "记录学习、开发与生活中的思考。" if zh else "Notes on learning, development, and life."
-    latest = "最新文章" if zh else "Latest Article"
-    other = "其他文章" if zh else "Other Articles"
     empty = "文章正在准备中。" if zh else "Articles are on the way."
-    uncategorized = "未分类" if zh else "Uncategorized"
-
-    lines = [
-        f'<div class="articles-page" data-article-count="{len(articles)}">',
-        f'<div class="articles-hero"><p class="articles-eyebrow">JOURNAL</p><h1>{title}</h1><p>{intro}</p></div>',
-        f'<section class="articles-section articles-latest"><div class="articles-section__heading"><span>01</span><h2>{latest}</h2></div>',
-        _card(articles[0], locale, True) if articles else f'<p class="articles-empty">{empty}</p>',
-        "</section>",
-        f'<section class="articles-section articles-archive"><div class="articles-section__heading"><span>02</span><h2>{other}</h2></div>',
-    ]
-
-    grouped = OrderedDict()
-    for article in articles:
-        for tag in article["tags"] or [uncategorized]:
-            grouped.setdefault(tag, []).append(article)
-    if grouped:
-        for tag, items in grouped.items():
-            lines.append(f'<div class="article-category"><div class="article-category__title"><h3>{tag}</h3><span>{len(items):02d}</span></div><div class="article-grid">')
-            lines.extend(_card(item, locale) for item in items)
-            lines.append("</div></div>")
-    else:
-        lines.append(f'<p class="articles-empty">{empty}</p>')
-    lines.extend(["</section>", "</div>"])
+    lines = [f'<div class="articles-page" data-article-count="{len(articles)}">', f'<div class="articles-hero"><h1>{title}</h1><p>{intro}</p></div>', '<div class="articles-reading-list">']
+    lines.extend(_card(a, locale) for a in articles)
+    if not articles: lines.append(f'<p>{empty}</p>')
+    lines.extend(['</div>', '</div>'])
     return "\n\n".join(lines) + "\n"
 
 

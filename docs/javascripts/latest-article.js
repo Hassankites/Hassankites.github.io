@@ -14,7 +14,7 @@
       var tags = (article.tags || []).map(function (tag) { return '<span class="home-latest__tag">' + tag + '</span>'; }).join("");
       var read = locale === "en" ? "Read article" : "阅读全文";
       host.innerHTML = '<a class="home-latest__card" href="blogger/' + article.url + '">' +
-        '<div class="home-latest__cover"><img src="' + cover + '" alt="' + article.title + '"></div>' +
+        '<div class="home-latest__cover"><img src="' + cover + '" alt="" loading="lazy" width="640" height="480"></div>' +
         '<div class="home-latest__body"><time>' + article.date.replace(/-/g, ".") + '</time><h3>' + article.title + '</h3><p>' +
         (article.subtitle || "") + '</p><div class="home-latest__tags">' + tags + '</div><span class="home-latest__read">' + read + ' →</span></div></a>';
     });

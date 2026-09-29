@@ -3,10 +3,9 @@ hide:
   - title
 ---
 
-<section class="home-banner" id="home-cover" role="button" tabindex="0" aria-expanded="false" aria-label="展开主页内容">
+<section class="home-banner" id="home-cover">
   <div class="home-banner__content">
-    <span class="home-banner__eyebrow">HASSANKITE · PERSONAL SITE</span>
-    <p><span id="home-typewriter" data-phrases='["欢迎来到Hassankite的小站，这里有我的思考和经历。","无限学习，无限进步","Welcome to Hassankite&#39;s site, where I share my thoughts and experiences.","Infinite learning, infinite progress."]'></span><span class="home-typewriter__cursor" aria-hidden="true"></span></p>
+    <p><span id="home-typewriter" data-phrases='["欢迎来到Hassankite的小站，这里有我的思考和经历。", "无限学习，无限进步"]'></span><span class="home-typewriter__cursor" aria-hidden="true"></span></p>
   </div>
 </section>
 
@@ -46,5 +45,6 @@ hide:
   </section>
   <section class="home-side-card"><div class="home-side-heading"><h2>最近更新</h2></div><ul class="recent-list" id="recent-updates"></ul></section>
   <section class="home-side-card home-notice"><div class="home-side-heading"><h2>公告栏</h2></div><p>欢迎来到Hassankite的小站！</p><time datetime="2026-08-18">2026.08.18</time></section>
+  
 </aside>
 </div>

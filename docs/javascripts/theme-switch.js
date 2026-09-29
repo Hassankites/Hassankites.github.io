@@ -21,15 +21,15 @@
     root.setAttribute("data-prepaint-scheme", scheme);
     root.setAttribute("data-site-theme", scheme);
     root.style.colorScheme = isSlate ? "dark" : "only light";
-    root.style.backgroundColor = isSlate ? "#1e2129" : "#f7f7fa";
+    root.style.backgroundColor = isSlate ? "#202329" : "#f8f9fb";
     body.setAttribute("data-md-color-scheme", scheme);
     body.setAttribute("data-site-theme", scheme);
     body.setAttribute("data-md-color-primary", "indigo");
     body.setAttribute("data-md-color-accent", "pink");
     body.style.colorScheme = isSlate ? "dark" : "only light";
-    body.style.backgroundColor = isSlate ? "#1e2129" : "#f7f7fa";
+    body.style.backgroundColor = isSlate ? "#202329" : "#f8f9fb";
     var themeMeta = document.getElementById("site-theme-color");
-    if (themeMeta) themeMeta.setAttribute("content", isSlate ? "#1e2129" : "#f7f7fa");
+    if (themeMeta) themeMeta.setAttribute("content", isSlate ? "#202329" : "#f8f9fb");
 
     try {
       localStorage.setItem(STORAGE_KEY, scheme);

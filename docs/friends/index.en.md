@@ -1,4 +1,4 @@
-<div class="subpage-hero"><p>NETWORK</p><h1>Friends</h1><div>A growing collection of sites that inform and inspire my work.</div></div>
+<div class="subpage-hero"><h1>Friends</h1><div>A growing collection of sites that inform and inspire my work.</div></div>
 
 <div class="friend-list">
 

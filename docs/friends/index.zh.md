@@ -1,4 +1,4 @@
-<div class="subpage-hero"><p>NETWORK</p><h1>友链</h1><div>持续收藏启发我、帮助我学习与创作的网站。</div></div>
+<div class="subpage-hero"><h1>友链</h1><div>持续收藏启发我、帮助我学习与创作的网站。</div></div>
 
 <div class="friend-list">
 

@@ -4,7 +4,7 @@
   {# 网站自行管理日夜主题，禁止移动浏览器按系统设置二次染色。 #}
   <meta name="color-scheme" content="only light">
   <meta name="supported-color-schemes" content="light">
-  <meta id="site-theme-color" name="theme-color" content="#f7f7fa">
+  <meta id="site-theme-color" name="theme-color" content="#f8f9fb">
   <script>
     /* 必须先于全部页面样式执行，避免夜间跨页面加载时先绘制浅色首帧。 */
     (function () {
@@ -12,7 +12,7 @@
       try {
         var saved = localStorage.getItem("mkdocs-theme");
         var scheme = saved === "slate" ? "slate" : "default";
-        var color = scheme === "slate" ? "#1e2129" : "#f7f7fa";
+        var color = scheme === "slate" ? "#202329" : "#f8f9fb";
         root.setAttribute("data-prepaint-scheme", scheme);
         root.setAttribute("data-site-theme", scheme);
         root.style.backgroundColor = color;
@@ -27,7 +27,7 @@
     })();
   </script>
   <style>
-    html { background: #f7f7fa; }
+    html { background: #f8f9fb; }
     html:not(.site-theme-ready) body { visibility: hidden !important; }
     html[data-prepaint-scheme="slate"],
     html[data-prepaint-scheme="slate"] body,
@@ -35,7 +35,7 @@
     html[data-prepaint-scheme="slate"] body .md-main,
     html[data-prepaint-scheme="slate"] body .md-main__inner,
     html[data-prepaint-scheme="slate"] body .md-content {
-      background: #1e2129 !important;
+      background: #202329 !important;
       color-scheme: dark;
     }
     html[data-prepaint-scheme="default"],
@@ -44,7 +44,7 @@
     html[data-prepaint-scheme="default"] body .md-main,
     html[data-prepaint-scheme="default"] body .md-main__inner,
     html[data-prepaint-scheme="default"] body .md-content {
-      background: #f7f7fa !important;
+      background: #f8f9fb !important;
       color-scheme: only light;
     }
     @media print {
@@ -80,3 +80,5 @@
     }
   </style>
 {% endblock %}
+
+{% block htmltitle %}<title>Design Taste · {{ page.title }} · Hassankite</title>{% endblock %}

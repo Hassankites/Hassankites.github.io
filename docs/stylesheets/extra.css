@@ -3551,14 +3551,14 @@ body,
   html[data-prepaint-scheme="default"] body,
   body[data-md-color-scheme="default"] {
     color-scheme: only light !important;
-    background-color: #f7f7fa !important;
+    background-color: #f8f9fb !important;
   }
 
   html[data-prepaint-scheme="slate"],
   html[data-prepaint-scheme="slate"] body,
   body[data-md-color-scheme="slate"] {
     color-scheme: dark !important;
-    background-color: #1e2129 !important;
+    background-color: #202329 !important;
   }
 
   body[data-md-color-scheme="default"] .md-container,
@@ -3566,7 +3566,7 @@ body,
   body[data-md-color-scheme="default"] .md-main__inner,
   body[data-md-color-scheme="default"] .md-content {
     color: #252633;
-    background-color: #f7f7fa !important;
+    background-color: #f8f9fb !important;
   }
 
   body[data-md-color-scheme="slate"] .md-container,
@@ -3574,7 +3574,7 @@ body,
   body[data-md-color-scheme="slate"] .md-main__inner,
   body[data-md-color-scheme="slate"] .md-content {
     color: #e6e5ec;
-    background-color: #1e2129 !important;
+    background-color: #202329 !important;
   }
 }
 

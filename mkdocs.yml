@@ -91,7 +91,8 @@ nav:
 
 # 语言切换滑块的自定义样式和脚本
 extra_css:
-  - stylesheets/extra.css?v=20260905-cover2
+  - stylesheets/extra.css?v=20260929-design
+  - stylesheets/design-taste.css?v=20260929-design
 
 extra_javascript:
   - javascripts/navigation-transition.js
@@ -101,10 +102,8 @@ extra_javascript:
   - javascripts/site-stats.js
   - javascripts/about-link.js
   - javascripts/search-close.js
-  - javascripts/cursor-follow.js
   - javascripts/latest-article.js
   - javascripts/home-typewriter.js
-  - javascripts/home-expand.js
 
 copyright: Copyright &copy; 2026 Hassankite
 
